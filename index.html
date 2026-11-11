@@ -1,12 +1,254 @@
+
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FF PANEL SUPPORT</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FF PANEL SUPPORT</title>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:#080d18;color:#fff;
+  font-family:Arial,sans-serif;
+  padding:20px 15px 35px;
+}
+.container{max-width:480px;margin:auto}
+.header{text-align:center;padding:22px 10px}
+.logo{
+  font-size:27px;font-weight:900;
+  letter-spacing:1px;color:#fff
+}
+.logo span{color:#00d9ff}
+.subtitle{color:#8493aa;font-size:12px;margin-top:8px}
+.status{
+  display:inline-block;margin-top:14px;
+  padding:6px 12px;border:1px solid #164e63;
+  border-radius:20px;color:#22d3ee;font-size:11px
+}
+.section-title{
+  font-size:13px;color:#94a3b8;
+  margin:22px 2px 12px;font-weight:bold;
+  letter-spacing:1px
+}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.menu button{
+  border:1px solid #ffffff18;border-radius:13px;
+  color:white;padding:17px 9px;
+  min-height:76px;font-size:13px;
+  font-weight:bold;cursor:pointer;
+  text-align:center;
+}
+.menu button:active{transform:scale(.97)}
+.blue{background:#2563EB}
+.indigo{background:#4338CA}
+.purple{background:#7C3AED}
+.green{background:#047857}
+.cyan{background:#0E7490}
+.orange{background:#B45309}
+.red{background:#BE123C}
+.slate{background:#475569}
+.violet{background:#6D28D9}
+.page{display:none}
+.page.active{display:block}
+.back{
+  background:#172338;border:1px solid #334155;
+  color:#fff;padding:10px 15px;border-radius:9px;
+  margin-bottom:20px;cursor:pointer
+}
+.panel-list{display:grid;gap:12px}
+.panel{
+  width:100%;padding:17px;
+  background:#0d192b;color:#fff;
+  border:1px solid #0891b2;
+  box-shadow:0 0 9px #0891b225;
+  border-radius:12px;text-align:left;
+  font-weight:bold;cursor:pointer
+}
+.panel small{color:#22d3ee;float:right}
+.action{
+  display:block;width:100%;padding:15px;
+  margin-top:12px;border:0;border-radius:10px;
+  background:#BE123C;color:white;
+  font-weight:bold;cursor:pointer
+}
+.card{
+  background:#111c2e;border:1px solid #26364c;
+  border-radius:13px;padding:17px;margin-bottom:13px
+}
+.card h3{font-size:15px;margin-bottom:10px}
+.card p,.note{font-size:12px;color:#9aabc2;line-height:1.6}
+input,textarea{
+  width:100%;padding:13px;margin-top:12px;
+  border-radius:9px;border:1px solid #334155;
+  background:#081322;color:#fff;font-size:13px
+}
+textarea{min-height:110px;resize:vertical}
+.file-label{
+  display:block;margin-top:12px;padding:14px;
+  border:1px dashed #0e9fbd;border-radius:9px;
+  color:#67e8f9;text-align:center;font-size:13px;
+  cursor:pointer
+}
+input[type=file]{display:none}
+.warning{
+  color:#fbbf24;font-size:11px;
+  line-height:1.6;margin-top:12px
+}
+.footer{text-align:center;color:#64748b;font-size:11px;margin-top:30px}
+</style>
 </head>
+
 <body>
-    <h1>FF PANEL SUPPORT</h1>
-    <p>Welcome to FF Panel Support</p>
+<div class="container">
+
+<header class="header">
+  <div class="logo">FF PANEL <span>SUPPORT</span></div>
+  <div class="subtitle">YOUR SUPPORT, OUR PRIORITY</div>
+  <div class="status">● SUPPORT CENTER</div>
+</header>
+
+<div id="home" class="page active">
+  <div class="section-title">MAIN MENU</div>
+  <div class="menu">
+    <button class="blue" onclick="openPage('website')">🌐<br>Official Website</button>
+    <button class="indigo" onclick="openPage('account')">👤<br>My Account</button>
+    <button class="purple" onclick="openPage('login')">🔐<br>Login Help</button>
+    <button class="green" onclick="openPage('payment')">💳<br>Payment Support</button>
+    <button class="cyan" onclick="openPage('setup')">📁<br>Setup & File</button>
+    <button class="orange" onclick="openPage('order')">📦<br>Order Support</button>
+    <button class="red" onclick="openPage('live')">🎧<br>Live Support</button>
+    <button class="slate" onclick="openPage('other')">🛠<br>Other Issues</button>
+    <button class="violet" onclick="openPage('language')">🌐<br>Change Language</button>
+  </div>
+</div>
+
+<div id="website" class="page">
+  <button class="back" onclick="goHome()">← Back</button>
+  <div class="card">
+    <h3>🌐 Official Website</h3>
+    <p>Visit the official FF Panel website.</p>
+    <button class="action" onclick="window.open('https://ffpanel.online','_blank')">OPEN WEBSITE</button>
+  </div>
+</div>
+
+<div id="account" class="page">
+  <button class="back" onclick="goHome()">← Back</button>
+  <div class="card"><h3>👤 My Account Support</h3>
+  <p>Describe your account-related problem.</p></div>
+  <div id="accountForm"></div>
+</div>
+
+<div id="login" class="page">
+  <button class="back" onclick="goHome()">← Back</button>
+  <div class="card"><h3>🔐 Login Help</h3>
+  <p>Tell us what problem you are facing during login.</p></div>
+  <div id="loginForm"></div>
+</div>
+
+<div id="payment" class="page">
+  <button class="back" onclick="goHome()">← Back</button>
+  <div class="card"><h3>💳 Payment Support</h3>
+  <p>Describe your payment-related problem.</p></div>
+  <div id="paymentForm"></div>
+</div>
+
+<div id="order" class="page">
+  <button class="back" onclick="goHome()">← Back</button>
+  <div class="card"><h3>📦 Order Support</h3>
+  <p>Describe your order-related problem.</p></div>
+  <div id="orderForm"></div>
+</div>
+
+<div id="live" class="page">
+  <button class="back" onclick="goHome()">← Back</button>
+  <div class="card"><h3>🎧 Live Support</h3>
+  <p>Describe your issue. Our support team will assist you.</p></div>
+  <div id="liveForm"></div>
+</div>
+
+<div id="other" class="page">
+  <button class="back" onclick="goHome()">← Back</button>
+  <div class="card"><h3>🛠 Other Issues</h3>
+  <p>Tell us about any other problem.</p></div>
+  <div id="otherForm"></div>
+</div>
+
+<div id="setup" class="page">
+  <button class="back" onclick="goHome()">← Back</button>
+  <div class="section-title">SELECT YOUR PANEL</div>
+  <div class="panel-list" id="panelList">
+    <button class="panel" onclick="selectPanel('Panel 01')">PANEL 01 <small>01</small></button>
+    <button class="panel" onclick="selectPanel('Panel 02')">PANEL 02 <small>02</small></button>
+    <button class="panel" onclick="selectPanel('Panel 03')">PANEL 03 <small>03</small></button>
+    <button class="panel" onclick="selectPanel('Panel 04')">PANEL 04 <small>04</small></button>
+  </div>
+  <div id="panelActions"></div>
+</div>
+
+<div id="language" class="page">
+  <button class="back" onclick="goHome()">← Back</button>
+  <div class="card">
+    <h3>🌐 Change Language</h3>
+    <p>Language selection will be connected to the bot later.</p>
+    <button class="action" onclick="alert('Language settings will be connected soon.')">বাংলা</button>
+    <button class="action" onclick="alert('Language settings will be connected soon.')">English</button>
+    <button class="action" onclick="alert('Language settings will be connected soon.')">हिन्दी</button>
+    <button class="action" onclick="alert('Language settings will be connected soon.')">नेपाली</button>
+  </div>
+</div>
+
+<div class="footer">FF PANEL SUPPORT • OFFICIAL SUPPORT CENTER</div>
+</div>
+
+<script>
+const tg = window.Telegram && window.Telegram.WebApp;
+if(tg){tg.ready();tg.expand();}
+
+function openPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+function goHome(){openPage('home');}
+
+const supportTypes=['account','login','payment','order','live','other'];
+
+supportTypes.forEach(type=>{
+  const target=document.getElementById(type+'Form');
+  if(!target)return;
+  target.innerHTML=`
+    <div class="card">
+      <h3>Problem Details</h3>
+      <p>Please explain your problem in detail.</p>
+      <textarea id="${type}Description" placeholder="Write your problem here..."></textarea>
+      <label class="file-label" for="${type}Screenshot">📷 Select Screenshot (Required)</label>
+      <input id="${type}Screenshot" type="file" accept="image/*">
+      <div class="warning">
+        Screenshot is required for support requests.
+        Hide your PIN, password, OTP and private information before sharing.
+      </div>
+      <button class="action" onclick="submitPreview('${type}')">SUBMIT REQUEST</button>
+    </div>`;
+});
+
+function submitPreview(type){
+  const description=document.getElementById(type+'Description').value.trim();
+  const screenshot=document.getElementById(type+'Screenshot').files[0];
+  if(!description){alert('Please write your problem details.');return;}
+  if(!screenshot){alert('Please select a screenshot.');return;}
+  alert('Your form is ready. Telegram bot connection and screenshot upload will be added in the next development step.');
+}
+
+function selectPanel(name){
+  document.getElementById('panelActions').innerHTML=`
+    <div class="card" style="margin-top:15px">
+      <h3>${name}</h3>
+      <button class="action" onclick="alert('File download link will be connected later.')">📁 FILE DOWNLOAD</button>
+      <button class="action" onclick="alert('Video setup link will be connected later.')">▶ VIDEO SETUP</button>
+    </div>`;
+}
+</script>
 </body>
 </html>
