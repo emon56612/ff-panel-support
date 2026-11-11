@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FF PANEL SUPPORT - ADMIN</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:#080d18;
+  color:#fff;
+  font-family:Arial,sans-serif;
+}
+.layout{display:flex;min-height:100vh}
+.sidebar{
+  width:245px;
+  background:#0d192b;
+  border-right:1px solid #26364c;
+  padding:22px 14px;
+}
+.logo{
+  font-size:20px;
+  font-weight:900;
+  padding:10px;
+  margin-bottom:30px;
+}
+.logo span{color:#00d9ff}
+.side-title{
+  color:#64748b;
+  font-size:11px;
+  font-weight:bold;
+  margin:20px 10px 10px;
+}
+.menu button{
+  width:100%;
+  padding:13px 12px;
+  text-align:left;
+  border:0;
+  border-radius:8px;
+  background:transparent;
+  color:#cbd5e1;
+  cursor:pointer;
+  margin-bottom:5px;
+}
+.menu button:hover,
+.menu button.active{
+  background:#164e63;
+  color:#22d3ee;
+}
+.main{flex:1;padding:25px}
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+}
+.topbar h2{font-size:21px}
+.admin{
+  background:#172338;
+  padding:10px 14px;
+  border-radius:8px;
+  color:#22d3ee;
+  font-size:12px;
+}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-bottom:25px;
+}
+.stat{
+  background:#111c2e;
+  border:1px solid #26364c;
+  padding:20px;
+  border-radius:12px;
+}
+.stat small{color:#94a3b8}
+.stat h2{margin-top:10px;font-size:25px}
+.toolbar{
+  display:flex;
+  gap:10px;
+  margin-bottom:18px;
+}
+input,select{
+  background:#111c2e;
+  border:1px solid #334155;
+  color:white;
+  padding:13px;
+  border-radius:8px;
+  outline:none;
+}
+input{flex:1;min-width:0}
+select{width:170px}
+.inbox{
+  background:#111c2e;
+  border:1px solid #26364c;
+  border-radius:12px;
+  overflow:hidden;
+}
+.inbox-head{
+  padding:17px;
+  border-bottom:1px solid #26364c;
+  font-weight:bold;
+}
+.empty{
+  text-align:center;
+  padding:55px 15px;
+  color:#64748b;
+}
+.empty div{font-size:35px;margin-bottom:12px}
+@media(max-width:700px){
+  .sidebar{width:175px}
+  .main{padding:15px}
+  .stats{grid-template-columns:1fr}
+  .toolbar{flex-direction:column}
+  select{width:100%}
+}
+@media(max-width:480px){
+  .layout{flex-direction:column}
+  .sidebar{width:100%;border-right:0;border-bottom:1px solid #26364c}
+  .menu{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+  .side-title{margin-top:10px}
+}
+</style>
+</head>
+
+<body>
+<div class="layout">
+
+<aside class="sidebar">
+  <div class="logo">FF PANEL <span>ADMIN</span></div>
+
+  <div class="side-title">SUPPORT MANAGEMENT</div>
+
+  <div class="menu">
+    <button class="active">📥 All Requests</button>
+    <button>👤 My Account</button>
+    <button>🔐 Login Help</button>
+    <button>💳 Payment Support</button>
+    <button>📦 Order Support</button>
+    <button>🎧 Live Support</button>
+    <button>🛠 Other Issues</button>
+    <button>🚨 Emergency</button>
+  </div>
+
+  <div class="side-title">OTHER</div>
+  <div class="menu">
+    <button>📚 Knowledge Base</button>
+    <button>⚙️ Settings</button>
+  </div>
+</aside>
+
+<main class="main">
+
+  <div class="topbar">
+    <h2>Support Dashboard</h2>
+    <div class="admin">ADMIN PORTAL</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <small>Total Requests</small>
+      <h2>0</h2>
+    </div>
+    <div class="stat">
+      <small>Pending</small>
+      <h2>0</h2>
+    </div>
+    <div class="stat">
+      <small>Solved</small>
+      <h2>0</h2>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <input type="search" placeholder="Search Customer ID or Name...">
+    <select>
+      <option>All Status</option>
+      <option>Pending</option>
+      <option>Solved</option>
+    </select>
+  </div>
+
+  <div class="inbox">
+    <div class="inbox-head">📥 SUPPORT INBOX</div>
+    <div class="empty">
+      <div>📭</div>
+      No support requests yet.
+    </div>
+  </div>
+
+</main>
+</div>
+</body>
+</html>
