@@ -25,3 +25,10 @@ async def home():
 @app.get("/health")
 async def health():
     return {"status": "healthy"}
+
+@app.get("/api/tickets")
+async def get_tickets():
+    return {
+        "success": True,
+        "tickets": []
+    }
